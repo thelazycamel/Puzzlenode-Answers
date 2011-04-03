@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rates>
+  <rate>
+    <from>AUD</from>
+    <to>CAD</to>
+    <conversion>3</conversion>
+  </rate>
+  <rate>
+    <from>CAD</from>
+    <to>USD</to>
+    <conversion>2</conversion>
+  </rate>
+  <rate>
+    <from>USD</from>
+    <to>CAD</to>
+    <conversion>0.5</conversion>
+  </rate>
+</rates>
