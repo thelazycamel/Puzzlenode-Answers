@@ -147,3 +147,5 @@ puts " "
 puts book.calculate_transactions
 puts "---------"
 puts book.total
+
+File.open("solution.txt", 'w') {|f| f.write(book.total) }
