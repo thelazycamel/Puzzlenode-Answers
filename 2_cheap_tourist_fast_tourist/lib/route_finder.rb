@@ -20,7 +20,9 @@ class RouteFinder
       finish = Float(route[:arrive].split(":").join)
       finish - start
     end
-    string_this(quickest_route[0])
+    base_route = quickest_route[0]
+    choice_of_quickest_routes = quickest_route.map {|route| route if route[:begin] == base_route[:begin] && route[:arrive] == base_route[:arrive] }.compact
+    string_this(choice_of_quickest_routes.sort_by!{|route| route[:price]}.first)
   end
   
   private
@@ -76,7 +78,9 @@ class RouteFinder
   def traverse_all_options(test_case, route_options, level)
     this_route = route_options.pop
     #I dont like this it should be refactored
-    @routes[@route_number].delete_at(-1) if @routes[@route_number].size > level
+    while @routes[@route_number].size > level do
+      @routes[@route_number].delete_at(-1)
+    end
     @routes[@route_number] << this_route
     start_a_new_route and return if this_route[:end] == "Z" || route_options.empty?
     level += 1
